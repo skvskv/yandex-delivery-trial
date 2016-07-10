@@ -101,7 +101,7 @@ class ProvinceOptimized
     }
 
     /**
-     * @return \SplFixedArray
+     * @return \SplFixedArray | null
      */
     public function getHouseroomDescriptors()
     {

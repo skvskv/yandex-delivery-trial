@@ -109,18 +109,4 @@ class Province
     {
         return $this->houseroomDescriptors;
     }
-
-    public function getNumOfDescs()
-    {
-        return count($this->houseroomDescriptors);
-    }
-
-//    public function __construct($id, $name, $type, $parentId)
-//    {
-//        $this->id = $id;
-//        $this->name = $name;
-//        $this->type = $type;
-//        $this->parentId = $parentId;
-//    }
-
 }
