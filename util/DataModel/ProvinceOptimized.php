@@ -118,6 +118,69 @@ class ProvinceOptimized
         return $this;
     }
 
+    public function getPrice($roomAmount)
+    {
+        if (!$this->canPossiblyFindPrice($roomAmount))
+        {
+            return null;
+        }
+
+        return $this->binarySearchPrice($roomAmount);
+    }
+
+    /**
+     * @param $roomAmount
+     * @return int|null
+     */
+    public function binarySearchPrice($roomAmount)
+    {
+        /**
+         * @var $probe HouseRoomDescriptor
+         */
+        $left = 0;
+        $right = $this->houseroomDescriptors->count();
+        while ($left<=$right)
+        {
+            $probeIdx = (int)(($left+$right) / 2);
+            $probe = $this->houseroomDescriptors->offsetGet($probeIdx);
+            if ($roomAmount < $probe->getSFrom())
+            {
+                $right = $probeIdx - 1;
+                continue;
+            }
+            if ($probe->getSTo() < $roomAmount)
+            {
+                $left = $probeIdx + 1;
+                continue;
+            }
+            if ( ($probe->getSFrom() <= $roomAmount) && ($roomAmount <= $probe->getSTo()) )
+            {
+                return $probe->getHouseroomUnitPrice();
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @param $roomAmount
+     * @return bool
+     */
+    public function canPossiblyFindPrice($roomAmount)
+    {
+        /**
+         * @var $smallest HouseRoomDescriptor
+         * @var $largest  HouseRoomDescriptor
+         */
+        if (0 == $this->houseroomDescriptors->count())
+        {
+            return false;
+        }
+        $smallest = $this->houseroomDescriptors->offsetGet(0);
+        $largest = $this->houseroomDescriptors->offsetGet(-1+$this->houseroomDescriptors->count());
+        return ( ($smallest->getSFrom() <= $roomAmount) && ($roomAmount <= $largest->getSTo()) );
+    }
+
     /**
      * @param Province $province
      * @return ProvinceOptimized

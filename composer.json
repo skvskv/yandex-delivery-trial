@@ -16,9 +16,8 @@
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
-      "YDT\\DataModel\\": ["util/", ""],
-      "YDT\\Auxiliary\\Range\\": ["util/Range", ""],
-      "YDT\\Tests\\Auxiliary\\Range\\": ["util/Range", ""]
+      "YDT\\DataModel\\": ["util/DataModel/", ""],
+      "YDT\\Tests\\DataModel\\": ["util/DataModel/", ""]
     }
   },
   "require": {
