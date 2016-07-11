@@ -3,34 +3,25 @@ namespace YDT\DataModel;
 use SplFixedArray;
 class ProvinceOptimized
 {
-    /**
-     * @var int
-     */
+    /** @var int */
     protected $id;
 
-    /**
-     * @var int
-     */
+    /** @var int */
     protected $parentId;
 
-    /**
-     * @var string
-     */
+    /** @var  ProvinceOptimized */
+    protected $parent;
+
+    /** @var string */
     protected $name;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $type;
 
-    /**
-     * @var \SplFixedArray
-     */
+    /** @var \SplFixedArray */
     protected $houseroomDescriptors;
 
-    /**
-     * @return int
-     */
+    /** @return int */
     public function getId()
     {
         return $this->id;
@@ -46,9 +37,7 @@ class ProvinceOptimized
         return $this;
     }
 
-    /**
-     * @return int
-     */
+    /** @return int */
     public function getParentId()
     {
         return $this->parentId;
@@ -61,6 +50,22 @@ class ProvinceOptimized
     public function setParentId($parentId)
     {
         $this->parentId = $parentId;
+        return $this;
+    }
+
+    /** @return ProvinceOptimized */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * @param ProvinceOptimized $parent
+     * @return ProvinceOptimized
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
         return $this;
     }
 

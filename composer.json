@@ -17,6 +17,7 @@
   "autoload": {
     "psr-4": {
       "YDT\\DataModel\\": ["util/DataModel/", ""],
+      "YDT\\Application\\": ["util/Application/", ""],
       "YDT\\Tests\\DataModel\\": ["util/DataModel/", ""]
     }
   },

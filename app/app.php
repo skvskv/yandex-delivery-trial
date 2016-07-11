@@ -1,11 +1,18 @@
 <?php
 
-//use lib\HW;
-use Library\HelloWorld\HW;
+namespace YDT\Application;
 
 define('APPLICATION_ROOT_DIR', dirname(__DIR__));
 require_once APPLICATION_ROOT_DIR . DIRECTORY_SEPARATOR . "bootstrap.php";
 
-$hw = new HW();
+define('PROVINCE_DATAFILE', '/tmp/city.csv');
+define('PRICES_DATAFILE', '/tmp/cost.csv');
 
-$hw->run();
+//define('PROVINCE_DATAFILE', APPLICATION_ROOT_DIR . '\tmp\cityE.csv');
+//define('PRICES_DATAFILE', APPLICATION_ROOT_DIR . '\tmp\cost.csv');
+
+
+$app = new Application(PROVINCE_DATAFILE, PRICES_DATAFILE);
+
+$app->init();
+$app->run();
