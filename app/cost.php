@@ -8,10 +8,6 @@ require_once APPLICATION_ROOT_DIR . DIRECTORY_SEPARATOR . "bootstrap.php";
 define('PROVINCE_DATAFILE', '/tmp/city.csv');
 define('PRICES_DATAFILE', '/tmp/cost.csv');
 
-//define('PROVINCE_DATAFILE', APPLICATION_ROOT_DIR . '\tmp\cityE.csv');
-//define('PRICES_DATAFILE', APPLICATION_ROOT_DIR . '\tmp\cost.csv');
-
-
 $app = new Application(PROVINCE_DATAFILE, PRICES_DATAFILE);
 
 $app->init();

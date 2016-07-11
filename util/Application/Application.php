@@ -114,15 +114,22 @@ class Application
     {
         while( ($inputLine = fgets(STDIN)) )
         {
-            $inputRow = explode(',', $inputLine);
-            $inputRow['provinceId'] = (int) $inputRow[0];
-            $inputRow['roomAmount'] = (int) $inputRow[1];
-            $price = $this->getPriceByInputRow($inputRow);
-            if (is_null($price))
+            $inputLine = trim($inputLine);
+            if ("" !== $inputLine)
             {
-                echo "false\n";
+                $inputRow = explode(',', $inputLine);
+                $inputRow['provinceId'] = (int) $inputRow[0];
+                $inputRow['roomAmount'] = (int) $inputRow[1];
+                $price = $this->getPriceByInputRow($inputRow);
+                if (is_null($price))
+                {
+                    echo "false\n";
+                }
+                else
+                {
+                    echo $price*$inputRow['roomAmount']."\n";
+                }
             }
-            echo $price."\n";
         }
     }
 

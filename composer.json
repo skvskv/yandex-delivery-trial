@@ -1,11 +1,8 @@
 {
   "name": "skvskv/yandex-delivery-trial",
   "type": "library",
-  "version": "0.1",
+  "version": "1.0RC2",
   "description": "Trial task for Yandex Delivery",
-  "keywords": [
-    ""
-  ],
   "homepage": "https://github.com/skvskv/yandex-delivery-trial",
   "authors": [
     {
@@ -13,7 +10,6 @@
       "email": "skv@eml.ru"
     }
   ],
-  "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
       "YDT\\DataModel\\": ["util/DataModel/", ""],
@@ -22,8 +18,7 @@
     }
   },
   "require": {
-    "league/csv": "^8.1",
-    "goodby/csv": "^1.3"
+    "league/csv": "^8.1"
   },
   "require-dev": {
     "phpunit/phpunit": "5.4.*"
