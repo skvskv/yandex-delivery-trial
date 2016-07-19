@@ -1,0 +1,12 @@
+default:
+  suites:
+    my_suite:
+      contexts:
+        - FeatureContext
+        - Behat\MinkExtension\Context\MinkContext
+  extensions:
+    Behat\MinkExtension:
+      base_url: http://en.wikipedia.org/
+      sessions:
+        first_session:
+          goutte: ~
